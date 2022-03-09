@@ -1,0 +1,23 @@
+<div class="zs-recipe">
+
+  <div class="zs-recipe-context">
+
+    <zs-recipe-info
+      [intro]="recipe?.intro"
+      [desc]="recipe?.description">
+    </zs-recipe-info>
+
+    <zs-todos
+      (add)="addTodo($event)"
+      (remove)="deleteTodo($event)"
+      (update)="updateTodo($event.id, $event.data)"
+      [data]="todos">
+    </zs-todos>
+
+  </div>
+
+  <div class="zs-recipe-diagram">
+    <z-project-diagram [services]="recipe?.services"></z-project-diagram>
+  </div>
+
+</div>
