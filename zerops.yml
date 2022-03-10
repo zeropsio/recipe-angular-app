@@ -9,5 +9,5 @@ app:
   run:
     envReplace:
       target: [ '.' ]
-      delimited: '%%'
+      delimiter: '%%'
 
