@@ -22,13 +22,13 @@ export class AppComponent {
       .subscribe(() => this.loadTodos());
   }
 
-  deleteTodo(id: string) {
+  deleteTodo(id: number | string) {
     this._todosService
       .delete$(id)
       .subscribe(() => this.loadTodos());
   }
 
-  updateTodo(id: string, data: Partial<Todo>) {
+  updateTodo(id: number | string, data: Partial<Todo>) {
     this._todosService
       .update$(id, data)
       .subscribe(() => this.loadTodos());

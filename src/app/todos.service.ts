@@ -14,14 +14,14 @@ export class TodosService {
     return this._httpClient.get<Todo[]>(this._endpoint);
   }
 
-  update$(id: string, data: Partial<Todo>) {
+  update$(id: number | string, data: Partial<Todo>) {
     return this._httpClient.patch<Todo>(
       `${this._endpoint}/${id}`,
       data
     );
   }
 
-  delete$(id: string) {
+  delete$(id: number | string) {
     return this._httpClient.delete(`${this._endpoint}/${id}`);
   }
 
