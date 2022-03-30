@@ -17,7 +17,7 @@
   </div>
 
   <div class="zs-recipe-diagram">
-    <z-project-diagram [services]="recipe?.services"></z-project-diagram>
+    <z-project-diagram #diagramRef [projectName]="recipe?.projectName" [services]="recipe?.services"></z-project-diagram>
   </div>
 
 </div>
