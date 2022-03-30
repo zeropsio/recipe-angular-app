@@ -23,7 +23,7 @@
     "zone.js": "~0.11.4",
     "@zerops/zestratcss": "0.0.14",
     "@zerops/zestrat-angular": "0.0.18",
-    "@zerops/zestrat-models": "0.0.18",
+    "@zerops/zestrat-models": "0.0.19",
     "@zerops/project-diagram": "0.0.7"
   },
   "devDependencies": {
