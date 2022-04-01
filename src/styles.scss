@@ -1,2 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400;500');
 @import '~@zerops/zestratcss/zestrat.css';
+
+html {
+  background: #f2f2f2;
+}
+.zs-app {
+  position: absolute;
+  top: 48px;
+  left: 48px;
+  bottom: 48px;
+  z-index: 1000000;
+
+  border-radius: 8px;
+  padding: 24px;
+  overflow: auto;
+
+  background: rgb(245, 245, 224);
+}
