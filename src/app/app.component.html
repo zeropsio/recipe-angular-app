@@ -1,23 +1,18 @@
-<div class="zs-recipe">
+<div class="zs-app">
 
-  <div class="zs-recipe-context">
+  <zs-recipe-info
+    [intro]="recipe?.intro"
+    [desc]="recipe?.description"
+    [knowledgeBaseLink]="recipe?.knowledgeBaseLink">
+  </zs-recipe-info>
 
-    <zs-recipe-info
-      [intro]="recipe?.intro"
-      [desc]="recipe?.description">
-    </zs-recipe-info>
-
-    <zs-todos
-      (add)="addTodo($event)"
-      (remove)="deleteTodo($event)"
-      (update)="updateTodo($event.id, $event.data)"
-      [data]="todos">
-    </zs-todos>
-
-  </div>
-
-  <div class="zs-recipe-diagram">
-    <z-project-diagram [services]="recipe?.services"></z-project-diagram>
-  </div>
+  <zs-todos
+    (add)="addTodo($event)"
+    (remove)="deleteTodo($event)"
+    (update)="updateTodo($event.id, $event.data)"
+    [data]="todos">
+  </zs-todos>
 
 </div>
+
+<z-project-diagram #diagramRef [projectName]="recipe?.projectName" [services]="recipe?.services"></z-project-diagram>

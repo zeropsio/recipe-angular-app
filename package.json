@@ -21,10 +21,10 @@
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4",
-    "@zerops/zestratcss": "0.0.14",
-    "@zerops/zestrat-angular": "0.0.18",
-    "@zerops/zestrat-models": "0.0.18",
-    "@zerops/project-diagram": "0.0.5"
+    "@zerops/zestratcss": "0.1.1",
+    "@zerops/zestrat-angular": "0.1.0",
+    "@zerops/zestrat-models": "0.1.0",
+    "@zerops/project-diagram": "0.0.9"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.5",
