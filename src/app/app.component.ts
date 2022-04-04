@@ -23,6 +23,12 @@ export class AppComponent implements AfterViewInit {
       requestType: 'GET'
     });
 
+    this.diagramRef.nativeElement.runRequest({
+      requestUrl: 'https://api-2014b-3000.app.zerops.io',
+      requestType: 'GET',
+      affectedServices: ['db']
+    });
+
     this.loadTodos();
   }
 
@@ -52,12 +58,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   loadTodos() {
-
-    this.diagramRef.nativeElement.runRequest({
-      requestUrl: 'https://api-2014b-3000.app.zerops.io',
-      requestType: 'GET',
-      affectedServices: ['db']
-    });
 
     this._todosService
       .findAll$()
