@@ -23,13 +23,7 @@ export class AppComponent implements AfterViewInit {
       requestType: 'GET'
     });
 
-    this.diagramRef.nativeElement.runRequest({
-      requestUrl: 'https://api-2014b-3000.app.zerops.io',
-      requestType: 'GET',
-      affectedServices: ['db']
-    });
-
-    this.loadTodos();
+    this.loadTodos(true);
   }
 
   addTodo(text: string) {
@@ -57,11 +51,19 @@ export class AppComponent implements AfterViewInit {
       .subscribe(() => this.loadTodos());
   }
 
-  loadTodos() {
+  loadTodos(triggerSimulation = false) {
 
     this._todosService
       .findAll$()
-      .subscribe((todos) => this.todos = todos)
+      .subscribe((todos) => this.todos = todos);
+
+    if (triggerSimulation) {
+      this.diagramRef.nativeElement.runRequest({
+        requestUrl: 'https://api-2014b-3000.app.zerops.io',
+        requestType: 'GET',
+        affectedServices: ['db']
+      });
+    }
   }
 
 }

@@ -6,7 +6,7 @@ import { Todo } from '@zerops/zestrat-models';
 @Injectable({ providedIn: 'root' })
 export class TodosService {
 
-  private _endpoint = `${environment.apiEndpoint}/todos`;
+  private _endpoint = `${JSON.parse(environment.recipeConfig).apiEndpoint}/todos`;
 
   constructor(private _httpClient: HttpClient) {}
 

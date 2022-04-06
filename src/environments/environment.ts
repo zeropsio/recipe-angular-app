@@ -1,9 +1,9 @@
 export const environment = {
   production: false,
-  apiEndpoint: 'https://api-2014b-3000.app.zerops.io',
-  // apiEndpoint: 'http://127.0.0.1:3333',
   recipeConfig: `{
-  "intro": "Hello company 👋",
+  "guiEndpoint": "https://app-20109.app.zerops.io",
+  "apiEndpoint": "https://app-20109.app.zerops.io",
+  "intro": "👋👋👋",
   "description": "This Zerops recipe demonstrates how to run and best integrate Angular application with a basic CRUD backend using Nest.js API and a PostgreSQL database into Zerops. Play around with and follow the TODO app below to get deeper into Zerops and how to best integrate it with this type of tech stack.",
   "knowledgeBaseLink": "https://zerops.io/article/how-we-use-zerops-to-build-deploy-and-run-zerops-io",
   "projectName": "foobar-dev",
@@ -28,7 +28,7 @@ export const environment = {
       "type": "nginx",
       "version": "v1.0",
       "containers": 3,
-      "isGuiService": true
+      "isEntryApp": 1
     },
     {
       "hostname": "db",
