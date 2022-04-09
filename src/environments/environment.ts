@@ -15,6 +15,16 @@ export const environment = {
       "repository": "https://github.com/fxck/todos-backend-nestjs",
       "type": "nodejs",
       "version": "v16.12",
+      "readwrite": ["db", "cache"],
+      "containers": 3
+    },
+    {
+      "hostname": "billing",
+      "port": 1137,
+      "routings": ["https://billing-20109-5000.app.zerops.io"],
+      "repository": "https://github.com/fxck/todos-backend-nestjs",
+      "type": "nodejs",
+      "version": "v16.12",
       "readwrite": ["db"],
       "containers": 3
     },
@@ -27,6 +37,12 @@ export const environment = {
       "isEntryApp": 1,
       "version": "v1.0",
       "containers": 3
+    },
+    {
+      "hostname": "cache",
+      "type": "keydb",
+      "version": "v2.4",
+      "mode": "HA"
     },
     {
       "hostname": "db",

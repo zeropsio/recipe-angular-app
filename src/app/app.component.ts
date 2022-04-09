@@ -27,7 +27,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   addTodo(text: string) {
-    this.projectDiagram.simulatePost(this.recipe.apiEndpoint, ['db']);
+    this.projectDiagram.simulatePost(`${this.recipe.apiEndpoint}/todos`, ['db']);
 
     this._todosService
       .add$({ text })
@@ -36,7 +36,7 @@ export class AppComponent implements AfterViewInit {
 
   deleteTodo(id: number | string) {
 
-    this.projectDiagram.simulateDelete(this.recipe.apiEndpoint, ['db']);
+    this.projectDiagram.simulateDelete(`${this.recipe.apiEndpoint}/todos`, ['db']);
 
     this._todosService
       .delete$(id)
@@ -45,7 +45,7 @@ export class AppComponent implements AfterViewInit {
 
   updateTodo(id: number | string, data: Partial<Todo>) {
 
-    this.projectDiagram.simulatePatch(this.recipe.apiEndpoint, ['db']);
+    this.projectDiagram.simulatePatch(`${this.recipe.apiEndpoint}/todos`, ['db']);
 
     this._todosService
       .update$(id, data)
@@ -59,7 +59,7 @@ export class AppComponent implements AfterViewInit {
       .subscribe((todos) => this.todos = todos);
 
     if (triggerSimulation) {
-      this.projectDiagram.simulateGet(this.recipe.apiEndpoint, ['db']);
+      this.projectDiagram.simulateGet(`${this.recipe.apiEndpoint}/todos`, ['db']);
     }
   }
 
