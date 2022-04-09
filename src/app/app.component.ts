@@ -11,6 +11,7 @@ export class AppComponent implements AfterViewInit {
 
   recipe: Recipe = JSON.parse(environment.recipeConfig);
   todos: Todo[];
+  projectDiagram: any;
 
   @ViewChild('diagramRef')
   diagramRef: ElementRef<any>;
@@ -18,21 +19,25 @@ export class AppComponent implements AfterViewInit {
   constructor(private _todosService: TodosService) { }
 
   ngAfterViewInit() {
-    this.diagramRef.nativeElement.runRequest({
-      requestUrl: 'https://app-20109.app.zerops.io',
-      requestType: 'GET'
-    });
+    this.projectDiagram = this.diagramRef.nativeElement;
+
+    this.projectDiagram.simulateGet(this.recipe.guiEndpoint);
 
     this.loadTodos(true);
   }
 
   addTodo(text: string) {
+    this.projectDiagram.simulatePost(this.recipe.apiEndpoint, ['db']);
+
     this._todosService
       .add$({ text })
       .subscribe(() => this.loadTodos());
   }
 
   deleteTodo(id: number | string) {
+
+    this.projectDiagram.simulateDelete(this.recipe.apiEndpoint, ['db']);
+
     this._todosService
       .delete$(id)
       .subscribe(() => this.loadTodos());
@@ -40,11 +45,7 @@ export class AppComponent implements AfterViewInit {
 
   updateTodo(id: number | string, data: Partial<Todo>) {
 
-    this.diagramRef.nativeElement.runRequest({
-      requestUrl: 'https://api-2014b-3000.app.zerops.io',
-      requestType: 'POST',
-      affectedServices: ['db']
-    });
+    this.projectDiagram.simulatePatch(this.recipe.apiEndpoint, ['db']);
 
     this._todosService
       .update$(id, data)
@@ -58,11 +59,7 @@ export class AppComponent implements AfterViewInit {
       .subscribe((todos) => this.todos = todos);
 
     if (triggerSimulation) {
-      this.diagramRef.nativeElement.runRequest({
-        requestUrl: 'https://api-2014b-3000.app.zerops.io',
-        requestType: 'GET',
-        affectedServices: ['db']
-      });
+      this.projectDiagram.simulateGet(this.recipe.apiEndpoint, ['db']);
     }
   }
 
