@@ -1,9 +1,9 @@
 <div class="zs-app">
 
   <zs-recipe-info
-    [intro]="recipe?.intro"
-    [desc]="recipe?.description"
-    [knowledgeBaseLink]="recipe?.knowledgeBaseLink">
+    [intro]="zeropsRecipeConfig?.intro"
+    [desc]="zeropsRecipeConfig?.description"
+    [knowledgeBaseLink]="zeropsRecipeConfig?.knowledgeBaseLink">
   </zs-recipe-info>
 
   <zs-todos
@@ -15,4 +15,8 @@
 
 </div>
 
-<z-project-diagram #diagramRef [projectName]="recipe?.projectName" [services]="recipe?.services"></z-project-diagram>
+<z-project-diagram
+  #zProjectDiagramElRef
+  [projectName]="zeropsRecipeConfig?.projectName"
+  [services]="zeropsRecipeConfig?.services">
+</z-project-diagram>

@@ -9,25 +9,25 @@ import { TodosService } from './todos.service';
 })
 export class AppComponent implements AfterViewInit {
 
-  recipe: Recipe = JSON.parse(environment.recipeConfig);
+  zeropsRecipeConfig: Recipe = JSON.parse(environment.zeropsRecipeConfig);
   todos: Todo[];
   projectDiagram: any;
 
-  @ViewChild('diagramRef')
-  diagramRef: ElementRef<any>;
+  @ViewChild('zProjectDiagramElRef')
+  zProjectDiagramElRef: ElementRef<any>;
 
   constructor(private _todosService: TodosService) { }
 
   ngAfterViewInit() {
-    this.projectDiagram = this.diagramRef.nativeElement;
+    this.projectDiagram = this.zProjectDiagramElRef.nativeElement;
 
-    this.projectDiagram.simulateGet(this.recipe.guiEndpoint);
+    this.projectDiagram.simulateGet(this.zeropsRecipeConfig.guiEndpoint);
 
     this.loadTodos(true);
   }
 
   addTodo(text: string) {
-    this.projectDiagram.simulatePost(`${this.recipe.apiEndpoint}/todos`, ['db']);
+    this.projectDiagram.simulatePost(`${this.zeropsRecipeConfig.apiEndpoint}/todos`, ['db']);
 
     this._todosService
       .add$({ text })
@@ -36,7 +36,7 @@ export class AppComponent implements AfterViewInit {
 
   deleteTodo(id: number | string) {
 
-    this.projectDiagram.simulateDelete(`${this.recipe.apiEndpoint}/todos`, ['db']);
+    this.projectDiagram.simulateDelete(`${this.zeropsRecipeConfig.apiEndpoint}/todos`, ['db']);
 
     this._todosService
       .delete$(id)
@@ -45,7 +45,7 @@ export class AppComponent implements AfterViewInit {
 
   updateTodo(id: number | string, data: Partial<Todo>) {
 
-    this.projectDiagram.simulatePatch(`${this.recipe.apiEndpoint}/todos`, ['db']);
+    this.projectDiagram.simulatePatch(`${this.zeropsRecipeConfig.apiEndpoint}/todos`, ['db']);
 
     this._todosService
       .update$(id, data)
@@ -59,7 +59,7 @@ export class AppComponent implements AfterViewInit {
       .subscribe((todos) => this.todos = todos);
 
     if (triggerSimulation) {
-      this.projectDiagram.simulateGet(`${this.recipe.apiEndpoint}/todos`, ['db']);
+      this.projectDiagram.simulateGet(`${this.zeropsRecipeConfig.apiEndpoint}/todos`, ['db']);
     }
   }
 
