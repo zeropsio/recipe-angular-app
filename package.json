@@ -24,7 +24,7 @@
     "@zerops/zestratcss": "0.1.4",
     "@zerops/zestrat-angular": "0.1.1",
     "@zerops/zestrat-models": "0.1.1",
-    "@zerops/project-diagram": "0.0.18"
+    "@zerops/project-diagram": "0.0.19"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.5",
